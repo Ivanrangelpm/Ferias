@@ -1,0 +1,197 @@
+:root{
+    font-size: 62.5%;
+
+    --ff-heading: 'Epilogue', sans-serif; 
+    --ff-texting: 'Open sans', sans-serif;
+
+    --hue: 250;
+    --bg-primary: hsl(var(--hue), 22%, 20%);
+    --fc-primary: hsl(var(--hue), 0%, 100%);
+    --fc-secondary: hsl(var(--hue), 50%, 80%);
+    --fc-secondary-dark: hsl(var(--hue),100%, 11%);
+
+    --fs-body: 1.6rem;
+    --fs-heading: 4rem;
+}
+
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    font-family: var(--ff-texting);
+    background-color: var(--bg-primary);
+    color: var(--fc-primary);
+
+    font-size: var(--fs-body);
+
+}
+
+main{
+    display: grid;
+    gap: 3.2rem;
+}
+
+.page{
+    max-width: 33rem;
+    margin: 0 auto;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+
+header{
+    margin: 10rem 0 8rem;
+
+    text-align: center;
+
+    font-family: var(--ff-heading);
+    
+}
+
+header p{
+    color: var(--fc-secondary);
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+    line-height: 3.2rem;
+    font-weight: 400;
+
+    margin-bottom: 1.7rem;
+}
+
+header h1{
+    font-weight: 800;
+    font-size: var(--fs-heading);
+    line-height: 4.8rem;
+}
+
+.card{
+    position: relative;
+    
+
+
+    font-family: var(--ff-heading);
+}
+
+.card img{
+    height: 41.6rem;
+    object-fit: cover;
+
+    border-radius: 6px;
+    transition: all 200ms;
+
+}
+
+.card img:hover{
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+.card h2{
+    position: absolute;
+    bottom: 5.2rem;
+    left: 2.8rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2.8rem;
+
+    font-size: var(--fs-heading);
+    font-weight: 800;
+}
+
+.card h2 span{
+    border-radius: 2rem;
+    padding: 0 1.6rem;
+    height: 3.8rem;
+
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+
+
+    background-color: var(--fc-primary);
+    color: var(--fc-secondary-dark);
+
+
+    font-size: var(--fs-body);
+    font-weight: 400;
+
+}
+
+header{
+    animation-name: topdown;
+    animation-duration: 700ms;
+
+
+    /* animation-direction: reverse;
+    animation-delay: 200ms;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; */
+
+
+    /* FAZER UMA ANIMAÇÃO E SUMIR
+    animation-fill-mode: forwards; */
+
+    /* animation-play-state: paused; */
+}
+
+/* header:hover{
+    animation-play-state: running;
+} */
+
+
+main{
+
+    animation: downtop 700ms /*tempo*/  350ms /*delay*/ backwards /*Por causa do delay*/;
+
+
+    /* COMO FUGIR DO BACKWARDS:
+    animation: downtop 700ms 350ms forwards;
+    opacity: 0;
+    transform: translateY(0);
+     */
+
+}
+
+@keyframes topdown {
+    0%{
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+@keyframes downtop{
+
+    0%{
+        opacity: 0;
+        transform: translateY(15px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+
+
+}
