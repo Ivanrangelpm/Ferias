@@ -11,7 +11,7 @@
     --fc-secondary-dark: hsl(var(--hue),100%, 11%);
 
     --fs-body: 1.6rem;
-    --fs-heading: 4rem;
+    --fs-heading: clamp(4rem, 16px, 5.6rem);
 }
 
 
@@ -37,12 +37,66 @@ body{
 main{
     display: grid;
     gap: 3.2rem;
+
+    animation: downtop 700ms /*tempo*/  350ms /*delay*/ backwards /*Por causa do delay*/;
+
+
+    /* COMO FUGIR DO BACKWARDS:
+    animation: downtop 700ms 350ms forwards;
+    opacity: 0;
+    transform: translateY(0);
+     */
+
 }
 
 .page{
     max-width: 33rem;
     margin: 0 auto;
 }
+
+@media (min-width: 700px){
+ 
+    
+    .page{
+        max-width: 117rem;
+        padding: 0 5rem;
+    }
+
+
+    main{
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (min-width: 930px){
+
+
+    main{
+        grid-template-areas: "A B B" 
+        "C C D";
+    }
+
+    main div:nth-child(1){
+        grid-area: A;
+    }
+
+    main div:nth-child(2){
+        grid-area: B;
+    }
+
+    main div:nth-child(3){
+        grid-area: C;
+    }
+
+    main div:nth-child(4){
+        grid-area: D;
+    }
+    
+}
+
+
+
 
 img{
     width: 100%;
@@ -55,8 +109,28 @@ header{
     text-align: center;
 
     font-family: var(--ff-heading);
-    
+
+
+    animation-name: topdown;
+    animation-duration: 700ms;
+
+
+    /* animation-direction: reverse;
+    animation-delay: 200ms;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; */
+
+
+    /* FAZER UMA ANIMAÇÃO E SUMIR
+    animation-fill-mode: forwards; */
+
+    /* animation-play-state: paused; */
 }
+
+/* header:hover{
+    animation-play-state: running;
+} */
+
 
 header p{
     color: var(--fc-secondary);
@@ -107,7 +181,7 @@ header h1{
     flex-direction: column;
     gap: 2.8rem;
 
-    font-size: var(--fs-heading);
+    font-size: 4rem;
     font-weight: 800;
 }
 
@@ -152,18 +226,6 @@ header{
 } */
 
 
-main{
-
-    animation: downtop 700ms /*tempo*/  350ms /*delay*/ backwards /*Por causa do delay*/;
-
-
-    /* COMO FUGIR DO BACKWARDS:
-    animation: downtop 700ms 350ms forwards;
-    opacity: 0;
-    transform: translateY(0);
-     */
-
-}
 
 @keyframes topdown {
     0%{
@@ -195,3 +257,4 @@ main{
 
 
 }
+
